@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.springframework.security.oauth2.server.authorization.properties.AlipayMiniProgramProperties,\
+  org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AlipayMiniProgramConfiguration
