@@ -177,9 +177,14 @@ git remote add gitlink https://gitlink.org.cn/xuxiaowei-com-cn/spring-boot-start
 ## 参考文档
 
 - [基本术语](https://opendocs.alipay.com/open/03ldot)
-- [前端](https://opendocs.alipay.com/mini/api/openapi-authorize)
-- [后端](https://opendocs.alipay.com/open/02xtla)
+- [前端：my.getAuthCode 获取用户信息授权，取得授权码（authCode）](https://opendocs.alipay.com/mini/api/openapi-authorize)
+- [后端：alipay.system.oauth.token(换取授权访问令牌)](https://opendocs.alipay.com/open/02xtla)
+- [后端：alipay.user.info.share(支付宝会员授权信息查询接口)](https://opendocs.alipay.com/open/02xtlb)
 - [小程序开发者工具](https://render.alipay.com/p/f/fd-jwq8nu2a/pages/home/index.html)
+- [密钥工具下载](https://opendocs.alipay.com/common/02kipk)
+- [产品绑定](https://open.alipay.com/develop/uni/mini/choose-product?bundleId=com.alipay.alipaywallet)
+- [服务端 SDK（通用版）—— 适用所有场景及功能，推荐使用](https://opendocs.alipay.com/open/54/103419)
+- [服务端 SDK（Easy 版）—— 适用于 Java、C#、PHP，轻量化裁剪](https://opendocs.alipay.com/open/00y8k9)
 
 ## 鸣谢
 
