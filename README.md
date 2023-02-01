@@ -179,6 +179,7 @@ git remote add gitlink https://gitlink.org.cn/xuxiaowei-com-cn/spring-boot-start
 - [基本术语](https://opendocs.alipay.com/open/03ldot)
 - [前端](https://opendocs.alipay.com/mini/api/openapi-authorize)
 - [后端](https://opendocs.alipay.com/open/02xtla)
+- [小程序开发者工具](https://render.alipay.com/p/f/fd-jwq8nu2a/pages/home/index.html)
 
 ## 鸣谢
 
