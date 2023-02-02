@@ -33,7 +33,7 @@ import java.io.Serializable;
  * @since 0.0.1
  */
 @Data
-public class AlipayTokenResponse implements Serializable {
+public class AlipayMiniProgramTokenResponse implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

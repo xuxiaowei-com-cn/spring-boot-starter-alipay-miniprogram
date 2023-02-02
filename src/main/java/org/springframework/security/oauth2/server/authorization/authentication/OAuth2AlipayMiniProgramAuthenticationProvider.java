@@ -34,7 +34,7 @@ import org.springframework.security.oauth2.server.authorization.OAuth2Authorizat
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService;
 import org.springframework.security.oauth2.server.authorization.OAuth2TokenType;
 import org.springframework.security.oauth2.server.authorization.client.AlipayMiniProgramService;
-import org.springframework.security.oauth2.server.authorization.client.AlipayTokenResponse;
+import org.springframework.security.oauth2.server.authorization.client.AlipayMiniProgramTokenResponse;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AlipayMiniProgramConfigurerUtils;
 import org.springframework.security.oauth2.server.authorization.context.AuthorizationServerContextHolder;
@@ -124,9 +124,10 @@ public class OAuth2AlipayMiniProgramAuthenticationProvider implements Authentica
 			throw new OAuth2AuthenticationException(error);
 		}
 
-		AlipayTokenResponse alipayTokenResponse = alipayMiniProgramService.getAlipayTokenResponse(appid, code);
+		AlipayMiniProgramTokenResponse alipayMiniProgramTokenResponse = alipayMiniProgramService
+				.getAlipayTokenResponse(appid, code);
 
-		AlipayUserInfoShareResponse userInfoShareResponse = alipayTokenResponse.getUserInfoShareResponse();
+		AlipayUserInfoShareResponse userInfoShareResponse = alipayMiniProgramTokenResponse.getUserInfoShareResponse();
 		String userId = userInfoShareResponse.getUserId();
 
 		OAuth2Authorization.Builder builder = OAuth2Authorization.withRegisteredClient(registeredClient);

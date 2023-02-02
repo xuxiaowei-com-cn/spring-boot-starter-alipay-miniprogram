@@ -22,7 +22,6 @@ package org.springframework.security.oauth2.server.authorization.client;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
-import com.alipay.api.AlipayConfig;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipaySystemOauthTokenRequest;
 import com.alipay.api.request.AlipayUserInfoShareRequest;
@@ -109,25 +108,10 @@ public class InMemoryAlipayMiniProgramService implements AlipayMiniProgramServic
 	 * 拦截处理此异常
 	 */
 	@Override
-	public AlipayTokenResponse getAlipayTokenResponse(String appid, String code) throws OAuth2AuthenticationException {
+	public AlipayMiniProgramTokenResponse getAlipayTokenResponse(String appid, String code)
+			throws OAuth2AuthenticationException {
 
-		AlipayMiniProgramProperties.AlipayMiniProgram alipayMiniProgram = getAlipayMiniProgramByAppid(appid);
-
-		String serverUrl = alipayMiniProgram.getServerUrl();
-		String privateKey = alipayMiniProgram.getPrivateKey();
-		String format = alipayMiniProgram.getFormat();
-		String charset = alipayMiniProgram.getCharset();
-		String alipayPublicKey = alipayMiniProgram.getAlipayPublicKey();
-		String signType = alipayMiniProgram.getSignType();
-
-		AlipayConfig alipayConfig = new AlipayConfig();
-		alipayConfig.setServerUrl(serverUrl);
-		alipayConfig.setAppId(appid);
-		alipayConfig.setPrivateKey(privateKey);
-		alipayConfig.setFormat(format);
-		alipayConfig.setAlipayPublicKey(alipayPublicKey);
-		alipayConfig.setCharset(charset);
-		alipayConfig.setSignType(signType);
+		AlipayMiniProgramProperties.AlipayMiniProgram alipayConfig = getAlipayMiniProgramByAppid(appid);
 
 		AlipayClient alipayClient;
 		try {
@@ -168,11 +152,11 @@ public class InMemoryAlipayMiniProgramService implements AlipayMiniProgramServic
 		}
 		String userInfoShareResponseCode = userInfoShareResponse.getCode();
 
-		AlipayTokenResponse alipayTokenResponse = new AlipayTokenResponse();
-		alipayTokenResponse.setSystemOauthTokenResponse(systemOauthTokenResponse);
-		alipayTokenResponse.setUserInfoShareResponse(userInfoShareResponse);
+		AlipayMiniProgramTokenResponse alipayMiniProgramTokenResponse = new AlipayMiniProgramTokenResponse();
+		alipayMiniProgramTokenResponse.setSystemOauthTokenResponse(systemOauthTokenResponse);
+		alipayMiniProgramTokenResponse.setUserInfoShareResponse(userInfoShareResponse);
 
-		return alipayTokenResponse;
+		return alipayMiniProgramTokenResponse;
 	}
 
 	/**
@@ -194,7 +178,7 @@ public class InMemoryAlipayMiniProgramService implements AlipayMiniProgramServic
 		}
 
 		for (AlipayMiniProgramProperties.AlipayMiniProgram alipayMiniProgram : list) {
-			if (appid.equals(alipayMiniProgram.getAppid())) {
+			if (appid.equals(alipayMiniProgram.getAppId())) {
 				return alipayMiniProgram;
 			}
 		}
