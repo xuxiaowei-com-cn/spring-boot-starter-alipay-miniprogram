@@ -20,8 +20,10 @@ package org.springframework.security.oauth2.server.authorization.properties;
  * #L%
  */
 
+import com.alipay.api.AlipayConfig;
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.security.oauth2.server.authorization.client.AlipayMiniProgramService;
@@ -67,7 +69,7 @@ public class AlipayMiniProgramProperties {
 			return null;
 		}
 		if (list.size() > 0) {
-			return list.get(0).appid;
+			return list.get(0).getAppId();
 		}
 		return null;
 	}
@@ -79,36 +81,8 @@ public class AlipayMiniProgramProperties {
 	 * @since 0.0.1
 	 */
 	@Data
-	public static class AlipayMiniProgram {
-
-		/**
-		 * 支付宝网关地址
-		 */
-		private String serverUrl = "https://openapi.alipay.com/gateway.do";
-
-		/**
-		 * AppID
-		 */
-		private String appid;
-
-		/**
-		 * 应用私钥
-		 */
-		private String privateKey;
-
-		private String format = "json";
-
-		private String charset = "GBK";
-
-		/**
-		 * 支付宝公钥
-		 */
-		private String alipayPublicKey;
-
-		/**
-		 * 签名类型
-		 */
-		private String signType;
+	@EqualsAndHashCode(callSuper = true)
+	public static class AlipayMiniProgram extends AlipayConfig {
 
 	}
 
