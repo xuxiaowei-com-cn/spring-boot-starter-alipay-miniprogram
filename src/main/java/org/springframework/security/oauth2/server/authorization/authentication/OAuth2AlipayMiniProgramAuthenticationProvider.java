@@ -125,7 +125,7 @@ public class OAuth2AlipayMiniProgramAuthenticationProvider implements Authentica
 		}
 
 		AlipayMiniProgramTokenResponse alipayMiniProgramTokenResponse = alipayMiniProgramService
-				.getAlipayTokenResponse(appid, code);
+				.getAccessTokenResponse(appid, code);
 
 		AlipayUserInfoShareResponse userInfoShareResponse = alipayMiniProgramTokenResponse.getUserInfoShareResponse();
 		String userId = userInfoShareResponse.getUserId();

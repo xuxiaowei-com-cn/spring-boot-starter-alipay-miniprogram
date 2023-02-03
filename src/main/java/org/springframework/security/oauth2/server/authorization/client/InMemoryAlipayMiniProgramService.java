@@ -108,7 +108,7 @@ public class InMemoryAlipayMiniProgramService implements AlipayMiniProgramServic
 	 * 拦截处理此异常
 	 */
 	@Override
-	public AlipayMiniProgramTokenResponse getAlipayTokenResponse(String appid, String code)
+	public AlipayMiniProgramTokenResponse getAccessTokenResponse(String appid, String code)
 			throws OAuth2AuthenticationException {
 
 		AlipayMiniProgramProperties.AlipayMiniProgram alipayConfig = getAlipayMiniProgramByAppid(appid);
