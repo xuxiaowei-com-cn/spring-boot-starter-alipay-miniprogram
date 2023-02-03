@@ -73,7 +73,7 @@ public interface AlipayMiniProgramService {
 	 * {@link OAuth2TokenEndpointConfigurer#errorResponseHandler(AuthenticationFailureHandler)}
 	 * 拦截处理此异常
 	 */
-	AlipayMiniProgramTokenResponse getAlipayTokenResponse(String appid, String code)
+	AlipayMiniProgramTokenResponse getAccessTokenResponse(String appid, String code)
 			throws OAuth2AuthenticationException;
 
 	/**
