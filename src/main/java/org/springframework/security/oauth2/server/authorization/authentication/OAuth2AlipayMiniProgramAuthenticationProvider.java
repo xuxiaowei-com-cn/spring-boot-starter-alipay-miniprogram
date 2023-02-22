@@ -104,7 +104,7 @@ public class OAuth2AlipayMiniProgramAuthenticationProvider implements Authentica
 		Set<String> requestedScopes = StringUtils.commaDelimitedListToSet(grantAuthenticationToken.getScope());
 
 		OAuth2ClientAuthenticationToken clientPrincipal = OAuth2AuthenticationProviderUtils
-				.getAuthenticatedClientElseThrowInvalidClient(grantAuthenticationToken);
+			.getAuthenticatedClientElseThrowInvalidClient(grantAuthenticationToken);
 		RegisteredClient registeredClient = clientPrincipal.getRegisteredClient();
 
 		if (registeredClient == null) {
@@ -125,7 +125,7 @@ public class OAuth2AlipayMiniProgramAuthenticationProvider implements Authentica
 		}
 
 		AlipayMiniProgramTokenResponse alipayMiniProgramTokenResponse = alipayMiniProgramService
-				.getAccessTokenResponse(appid, code);
+			.getAccessTokenResponse(appid, code);
 
 		AlipayUserInfoShareResponse userInfoShareResponse = alipayMiniProgramTokenResponse.getUserInfoShareResponse();
 		String userId = userInfoShareResponse.getUserId();
