@@ -48,13 +48,13 @@ public class OAuth2AlipayMiniProgramConfigurerUtils {
 
 	public static AlipayMiniProgramService getAlipayMiniProgramService(HttpSecurity httpSecurity) {
 		AlipayMiniProgramService alipayMiniProgramService = httpSecurity
-				.getSharedObject(AlipayMiniProgramService.class);
+			.getSharedObject(AlipayMiniProgramService.class);
 		if (alipayMiniProgramService == null) {
 			alipayMiniProgramService = OAuth2ConfigurerUtils.getOptionalBean(httpSecurity,
 					AlipayMiniProgramService.class);
 			if (alipayMiniProgramService == null) {
 				AlipayMiniProgramProperties alipayMiniProgramProperties = OAuth2ConfigurerUtils
-						.getOptionalBean(httpSecurity, AlipayMiniProgramProperties.class);
+					.getOptionalBean(httpSecurity, AlipayMiniProgramProperties.class);
 				alipayMiniProgramService = new InMemoryAlipayMiniProgramService(alipayMiniProgramProperties);
 			}
 		}
