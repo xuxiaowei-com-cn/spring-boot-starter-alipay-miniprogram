@@ -81,11 +81,11 @@
   </a>
 
   <a target="_blank" href="https://gitee.com/xuxiaowei-com-cn/spring-boot-starter-alipay-miniprogram">
-    <img alt="支付宝小程序 stars" src="https://gitee.com/xuxiaowei-com-cn/spring-boot-starter-alipay-miniprogram/badge/star.svg?theme=blue">
+    <img alt="码云Gitee stars" src="https://gitee.com/xuxiaowei-com-cn/spring-boot-starter-alipay-miniprogram/badge/star.svg?theme=blue">
   </a>
 
   <a target="_blank" href="https://gitee.com/xuxiaowei-com-cn/spring-boot-starter-alipay-miniprogram">
-    <img alt="支付宝小程序 forks" src="https://gitee.com/xuxiaowei-com-cn/spring-boot-starter-alipay-miniprogram/badge/fork.svg?theme=blue">
+    <img alt="码云Gitee forks" src="https://gitee.com/xuxiaowei-com-cn/spring-boot-starter-alipay-miniprogram/badge/fork.svg?theme=blue">
   </a>
 
   <a target="_blank" href="https://gitlab.com/xuxiaowei-com-cn/spring-boot-starter-alipay-miniprogram">
