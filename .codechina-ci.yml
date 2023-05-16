@@ -16,12 +16,7 @@ main:
     - gpg --import $GPG_FILE
     - SETTINGS_FILE=/usr/share/maven/conf/settings.xml
     - echo $SETTINGS_FILE
-    # 使用用户名/密码
-    # - sed -i "s#</servers>#<server><id>ossrh</id><username>$ossrh_user</username><password>$ossrh_pass</password></server>&#" $SETTINGS_FILE
-    # 使用Token
-    # 个人访问令牌：https://issues.sonatype.org/secure/ViewProfile.jspa
-    # 使用个人访问令牌：https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html
-    - sed -i "s#</servers>#<server><id>ossrh</id><configuration><httpHeaders><property><name>Authorization</name><value>Bearer $ossrh_token</value></property></httpHeaders></configuration></server>&#" $SETTINGS_FILE
+    - sed -i "s#</servers>#<server><id>ossrh</id><username>$ossrh_user</username><password>$ossrh_pass</password></server>&#" $SETTINGS_FILE
     - sed -i "s#</mirrors>#<mirror><id>mirror</id><mirrorOf>central,jcenter,!rdc-releases,!rdc-snapshots</mirrorOf><name>mirror</name><url>https://maven.aliyun.com/nexus/content/groups/public</url></mirror>&#" $SETTINGS_FILE
     - git --version
     - NAME=`mvn help:evaluate -Dexpression=project.name -q -DforceStdout`
