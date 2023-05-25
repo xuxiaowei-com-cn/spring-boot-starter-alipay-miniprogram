@@ -79,6 +79,12 @@ jobs:
         os: [ "ubuntu-latest" ]
 
     steps:
+      # 检出代码
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          # 获取所有的代码历史记录，包括分支和标签
+          fetch-depth: 0
 
 #      - name: Dependabot metadata
 #        id: metadata
