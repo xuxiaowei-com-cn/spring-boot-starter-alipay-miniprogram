@@ -26,3 +26,5 @@
     - GA
     - RELEASE
     - Stable
+- 里程碑
+    - M
