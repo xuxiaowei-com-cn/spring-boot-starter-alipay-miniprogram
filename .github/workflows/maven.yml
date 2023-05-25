@@ -72,7 +72,7 @@ jobs:
       # # 可以新建或修改 Pull Request
       pull-requests: write
     # 依赖机器人 && 仅PR
-    if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
+    # if: ${{ github.actor == 'dependabot[bot]' && github.event_name == 'pull_request' }}
 
     strategy:
       matrix:
