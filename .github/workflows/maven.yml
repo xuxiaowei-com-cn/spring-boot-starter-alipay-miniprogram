@@ -95,7 +95,20 @@ jobs:
 
       - name: Enable auto-merge for Dependabot PRs
         # if: ${{contains(steps.metadata.outputs.dependency-names, 'my-dependency') && steps.metadata.outputs.update-type == 'version-update:semver-patch'}}
-        run: gh pr merge --auto --merge "$PR_URL"
+        run: |
+          gh pr merge --auto --merge "$PR_URL"
+          curl \
+            -X POST \
+            -H 'Accept: application/vnd.github.everest-preview+json' \
+            -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
+            https://api.github.com/repos/{OWNER}/{REPO}/dispatches \
+            --data '{"event_type": "run-maven", "client_payload": {"branch": "main"}}'
+          curl \
+            -X POST \
+            -H 'Accept: application/vnd.github.everest-preview+json' \
+            -H 'Authorization: token ${{ secrets.GITHUB_TOKEN }}' \
+            https://api.github.com/repos/{OWNER}/{REPO}/dispatches \
+            --data '{"event_type": "run-codeql", "client_payload": {"branch": "main"}}'
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

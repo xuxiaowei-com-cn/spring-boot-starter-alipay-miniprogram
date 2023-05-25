@@ -1,0 +1,17 @@
+name: Run Maven Workflow on Branch Push
+
+on:
+  repository_dispatch:
+    types: [ run-maven ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run workflow
+        uses: ./.github/workflows/maven.yml
+        with:
+          branch: ${{ github.event.client_payload.branch }}

@@ -1,0 +1,17 @@
+name: Run CodeQL Workflow on Branch Push
+
+on:
+  repository_dispatch:
+    types: [ run-codeql ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Run workflow
+        uses: ./.github/workflows/codeql.yml
+        with:
+          branch: ${{ github.event.client_payload.branch }}
