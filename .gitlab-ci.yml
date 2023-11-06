@@ -32,7 +32,7 @@ next:
     paths:
       - target/spring-boot-starter-alipay-miniprogram-*
   rules:
-    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "next"
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "next" || $CI_COMMIT_BRANCH == "next-0.1.0-SNAPSHOT"
       changes:
         - ".mvn/**/*"
         - "src/**/*"
